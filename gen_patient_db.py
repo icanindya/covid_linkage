@@ -3,17 +3,18 @@ from county_race_stat import racial_weights
 from data import county_dict
 import pandas as pd
 
-COVID_FILE = r"E:\Data\Covid\Florida_COVID19_Case_Line_Data_081020.csv"
-COVID_FILE_RACE = r"E:\Data\Covid\patient_with_race_081020.csv"
+COVID_FILE = r"E:\Data\Covid\Florida_COVID19_Case_Line_Data_120720.csv"
+COVID_FILE_RACE = r"E:\Data\Covid\patient_with_race_120720.csv"
 
 df_patient = pd.read_csv(COVID_FILE, header=0, usecols=['ObjectId', 'County', 'Age', 'Gender',
-                                                        'EventDate', 'Jurisdiction'])
+                                                        'EventDate', 'Jurisdiction', 'Hospitalized'])
 df_patient.rename(columns={'ObjectId': 'patient_serial',
                            'County': 'county',
                            'Age': 'age',
                            'Gender': 'gender',
                            'EventDate': 'event_date',
-                           'Jurisdiction': 'jurisdiction'}, inplace=True)
+                           'Jurisdiction': 'jurisdiction',
+                           'Hospitalized': 'hospitalized'}, inplace=True)
 print('Num. of patients: {}'.format(len(df_patient)))
 
 df_patient.dropna(inplace=True)

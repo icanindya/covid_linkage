@@ -22,15 +22,17 @@ for eq_class_limit in [1, 3, 5, 10, 15, 20]:
 
         df = pd.read_csv(MATCH_FILE_RACE.format(eq_class_limit, i), header=0)
 
-        for county, df_county in df.groupby('county'):
+        # print(df)
 
-            df_county['risks'] = df_county['patient_counts'] / df_county['voter_counts']
+        for group, df_group in df.groupby(['county', 'gender', 'age', 'race', 'event_date']):
 
-            county_risk = df_county['risks'].sum()
+            df_group['risks'] = df_group['patient_counts'] / df_group['voter_counts']
+
+            county = group[0]
 
             county_fips = code_to_fips[county]
 
-            risk_dict[county_fips] += county_risk
+            risk_dict[county_fips] += df_group['risks']
 
     for k in risk_dict:
 

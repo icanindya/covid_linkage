@@ -2,7 +2,7 @@ import plotly.figure_factory as ff
 import numpy as np
 import pandas as pd
 import collections
-from data import county_dict, fips_dict
+from utils import county_dict, fips_dict
 
 MATCH_FILE_RACE = r'E:\Data\Covid\Results\matched_with_race_{}_{}_081020_053020.csv'
 FIG_FILE = r'E:\Data\Covid\Results\risk_county_{}_081020_053020.png'

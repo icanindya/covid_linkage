@@ -4,7 +4,7 @@ import matplotlib as mpl
 import pandas as pd
 import matplotlib.pyplot as plt
 
-RESULT_FILE = r"E:\Data\Covid\Results\result_with_race_{}_120720_053020.txt"
+RESULT_FILE = r"E:\Data\Covid\Results\result_{}_120720_053020.txt"
 
 ## combine these different collections into a list
 num_patients =[]
@@ -30,6 +30,5 @@ ax.set_xlabel('k')
 ax.set_ylabel('Num. of patients at risk')
 ax.set_xticks([1,2,3,4,5,6])
 ax.set_xticklabels(['1', '3', '5', '10', '15', '20'])
-plt.title('Num. of Vulnerable Patients vs. Bucket size (with race)')
+plt.title('Num. of Vulnerable Patients vs. Bucket size (without race)')
 plt.show()
-

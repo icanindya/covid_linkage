@@ -1,6 +1,6 @@
 import random
 from county_race_stat import racial_weights
-from data import county_dict
+from utils import county_dict
 import pandas as pd
 
 COVID_FILE = r"E:\Data\Covid\Florida_COVID19_Case_Line_Data_120720.csv"

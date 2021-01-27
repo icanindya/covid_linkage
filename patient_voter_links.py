@@ -5,13 +5,13 @@ import pandas as pd
 from county_race_stat import racial_weights
 from utils import get_yob, get_age
 
-COVID_FILE = r"E:\Data\Covid\patient_with_race_081020.csv"
+COVID_FILE = r"E:\Data\Covid\patient_with_race_120720.csv"
 VOTER_FILE = r"E:\Data\Covid\voterside_filtered_053020.csv"
 
-MATCH_FILE = r'E:\Data\Covid\matched_081020_053020.csv'
-MATCH_FILE_RACE = r'E:\Data\Covid\Results\matched_with_race_{}_{}_081020_053020.csv'
+MATCH_FILE = r'E:\Data\Covid\matched_120720_053020.csv'
+MATCH_FILE_RACE = r'E:\Data\Covid\Results\matched_with_race_{}_{}_120720_053020.csv'
 
-RESULT_FILE = r"E:\Data\Covid\Results\result_with_race_{}_081020_053020.txt"
+RESULT_FILE = r"E:\Data\Covid\Results\result_with_race_{}_120720_053020.txt"
 
 NUM_SIMULATIONS = 100
 
@@ -30,7 +30,7 @@ for eq_class_limit in [1, 3, 5, 10, 15, 20]:
 
     with open(RESULT_FILE.format(eq_class_limit), 'w') as wf:
 
-        wf.write('eq_class_limit, i, num_patients, num_voters, num_links, num_patients_nto1, num_patients_1to1\n')
+        wf.write('eq_class_limit,i,num_patients,num_voters,num_links,num_patients_nto1,num_patients_1to1\n')
 
         df_voter_filtered = pd.concat([group_df for group, group_df in df_voter.groupby(['county', 'yob', 'gender', 'race'])
                               if len(group_df) <= eq_class_limit])

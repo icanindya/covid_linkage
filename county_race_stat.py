@@ -1,5 +1,5 @@
 import pandas as pd
-from data import county_dict
+from utils import county_dict
 import collections
 import random
 
